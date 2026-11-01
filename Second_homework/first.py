@@ -1,18 +1,18 @@
 import sys
 import random
-import numpy as np
 
 
 def generate_matrix(n):
     matrix = []
     for _ in range(n):
         matrix.append([random.randint(-100,100) for _ in range(n)])
+    for row in range(n):
+        print(matrix[row])
     return matrix
 
 
 def search_in_matrix(matrix, n):
     points = []
-    print(np.array(matrix))
     for r in range(n):
         index_column, value = min(enumerate(matrix[r]), key=lambda x: x[1])
         for row in range(n):
