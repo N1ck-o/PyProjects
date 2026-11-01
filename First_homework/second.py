@@ -11,8 +11,14 @@ def stats_calculator(*args, mode='basic'):
         print('Медиана:', statistics.median(args))
         print('Мода:', statistics.mode(args))
     if mode == 'scientific':
-        print('Геометрическая прогрессия:', statistics.geometric_mean(args))
-        print('Гармоническая прогрессия:', statistics.harmonic_mean(args))
+        if any(x < 0 for x in args):
+            print('Отрицательные числа. Среднее геометрическое найти не получилось.')
+        else:
+            print('Среднее геометрическое:', statistics.geometric_mean(args))
+        if 0 not in args:
+            print('Ноль в числах. Среднее гармоническое найти не получилось.')
+        else:
+            print('Среднее гармоническое:', statistics.harmonic_mean(args))
 
 while True:
     try:
