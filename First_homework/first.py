@@ -16,13 +16,14 @@ while True:
         a = float(input('Введите коэффицент a: '))
         b = float(input('Введите коэффицент b: '))
         c = float(input('Введите коэффицент c: '))
-        solve(a, b, c)
-        while True:
-            print('Ещё раз? (y,n)')
-            s = str(input().strip().lower())
-            if s == 'y':
-                break
-            if s == 'n':
-                exit()
     except ValueError:
         print('Некорректно.')
+        exit()
+    solve(a, b, c)
+    while True:
+        print('Ещё раз? (y,n)')
+        s = input().strip().lower()
+        if s == 'y':
+            break
+        else:
+            exit()
