@@ -59,5 +59,5 @@ while True:
         s = input().strip().lower()
         if s == 'y':
             break
-        else:
+        if s == 'n':
             exit()
