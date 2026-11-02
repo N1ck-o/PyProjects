@@ -13,17 +13,11 @@ def stats_calculator(*args, mode='basic'):
         results['Мода:'] = statistics.mode(args)
     if mode == 'scientific':
         if any(x < 0 for x in args):
-            results['Среднее геометрическое:'] = 'Есть число меньше нуля. Посчитать невозможно'
+            results['Среднее геометрическое:'] = 'Числа меньше нуля. Невозможно'
         else:
-<<<<<<< HEAD
             results['Среднее геометрическое:'] = statistics.geometric_mean(args)
         if 0 in args:
             results['Среднее гармоническое:'] = 'Есть ноль. Посчитать невозможно'
-=======
-            print('Среднее геометрическое:', statistics.geometric_mean(args))
-        if 0 in args:
-            print('Ноль в числах. Среднее гармоническое найти не получилось.')
->>>>>>> 456ad1744c7c9d9d6e507de5cf153a058e7187c8
         else:
             results['Среднее гармоническое:'] = statistics.harmonic_mean(args)
     return results
