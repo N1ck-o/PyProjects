@@ -41,17 +41,13 @@ while True:
             exit()
         input_start = input("Введите стартовую дату (17.01.2026): ")
         input_finish = input("Введите конечную дату (31.12.2026): ")
-        try:
-            least_date = datetime.strptime(input_start, "%d.%m.%Y").date()
-            greatest_date = datetime.strptime(input_finish, "%d.%m.%Y").date()
-        except ValueError:
-            print("Неверный формат или даты не существует.")
-            exit()
-        if least_date > greatest_date:
-            print('Минимальный год не может быть больше максимального.')
-            exit()
+        least_date = datetime.strptime(input_start, "%d.%m.%Y").date()
+        greatest_date = datetime.strptime(input_finish, "%d.%m.%Y").date()
     except ValueError:
         print('Введены некорректные данные.')
+        exit()
+    if least_date > greatest_date:
+        print('Минимальный год не может быть больше максимального.')
         exit()
     generated = generate_dates(least_date, greatest_date, count)
     list_dates, list_next_dates, cnt = check_dates(*generated)
